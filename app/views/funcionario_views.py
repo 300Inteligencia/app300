@@ -13,12 +13,12 @@ def listar_funcionarios(request):
     funcionarios = funcionario_service.listar_funcionarios()
     return render(request, 'funcionarios/lista_funcionarios.html', {'funcionarios': funcionarios})
 
-@user_passes_test(lambda u: u.cargo==1)
+#@user_passes_test(lambda u: u.cargo==1)
 def listar_funcionarios_id(request, id):
     funcionarios = funcionario_service.listar_funcionarios_id(id)
     return render(request, 'funcionarios/lista_funcionarios.html', {'funcionario': funcionarios})
 
-@user_passes_test(lambda u: u.cargo==1)
+#@user_passes_test(lambda u: u.cargo==1)
 def inserir_funcionario(request):
     if request.method == "POST":
         form_funcionario = FuncionarioForm(request.POST)
@@ -35,7 +35,7 @@ def inserir_funcionario(request):
         form_funcionario = FuncionarioForm()
     return render(request, 'funcionarios/form_funcionario.html', {'form_funcionario': form_funcionario})
 
-@user_passes_test(lambda u: u.cargo==1)
+#@user_passes_test(lambda u: u.cargo==1)
 def remover_funcionario(request, id):
     funcionario = funcionario_service.listar_funcionarios_id(id)
     if request.method == "POST":
