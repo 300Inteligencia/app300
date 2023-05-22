@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Remoção de Orçamentos
+{% endblock title %}
+
+{% block content %}
+<style>
+    .word-wrap-break {
+        word-wrap: break-word;
+    }
+    button {
+        margin-right: 10px;
+    }
+</style>
+<section class="invoice">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">
+                <i class="fa fa-trash"></i> Tem certeza que deseja exluir o orçamento a seguir?  
+            </h2>
+            <h5>Nome da Cirugia: {{orcamento.nomeorc}}</h5>
+            <h5>Descrição: <span class="word-wrap-break">{{orcamento.descr}}</span></h5>
+            <h5>Data: {{orcamento.data}}</h5>
+
+            <form method="POST">
+                {% csrf_token %}
+                <button class="btn btn-danger" type="submit">Remover</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock content %}

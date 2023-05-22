@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Orçamento
+{% endblock title %}
+
+{% block content %}
+<style>
+    .invoice-col {
+        word-wrap: break-word;
+    }
+    button {
+        margin-right: 10px;
+    }
+</style>
+<section class="invoice">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">
+                <i class="fa fa-stethoscope"></i> Orçamento
+                
+            </h2>
+        </div>
+    </div>
+    
+    <div class="row invoice-info">
+        <div class="col-lg-12 invoice-col">
+
+            <b>Data:</b> {{orcamento.data}} <br>
+            <br>
+            <b>Cirurgia: </b> {{orcamento.nomeorc}} <br>
+            <br>
+            <b>Descrição: </b> {{orcamento.descr}} <br>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <b>Procedimentos e Valores:</b>
+            <br>
+            <b>{{orcamento.get_proc1_display}}:</b> R$ {{orcamento.val1}} - {{orcamento.get_pag1_display}}<br>           
+            {% if orcamento.proc2 == null %}
+                {{ form.DELETE }}
+            {% else %}
+                <b>{{orcamento.get_proc2_display}} : </b>R$ {{orcamento.val2}} - {{orcamento.get_pag2_display}}<br>
+            {% endif %}
+            {% if orcamento.get_proc3 == null %}
+                {{ form.DELETE }}
+            {% else %}
+                <b>R$ {{orcamento.get_proc3_display}} : </b>{{orcamento.val3}} - {{orcamento.get_pag3_display}}<br>
+            {% endif %}
+            {% if orcamento.val5 == null %}
+                {{ form.DELETE }}
+            {% else %}
+                <b>Hospital: </b>R$ {{orcamento.val5}} - {{orcamento.get_pag5_display}}<br>
+            {% endif %}
+            {% if orcamento.val6 == null %}
+                {{ form.DELETE }}
+            {% else %}
+                <b>Equipe: </b>R$ {{orcamento.val6}} - {{orcamento.get_pag6_display}}<br>
+            {% endif %}
+            {% if orcamento.val4 == null %}
+                {{ form.DELETE }}
+            {% else %}
+                <b>*Implante Mamário: </b>R$ {{orcamento.val4}} - {{orcamento.get_pag4_display}}<br>
+                <i>*Fornecido por terceiro</i>
+            {% endif %}
+            <hr>
+            <h3><b>Valor total:</b> R$ {{ orcamento.total|floatformat:2 }}</h3>
+
+
+            <p><i>Válido por 90 dias a partir da data de envio deste orçamento.</i></p>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row no-print">
+        <div class="col-xs-12">
+            <a href="{% url 'enviar_orcamento' orcamento.id %}">
+                <button type="button" class="btn btn-alert pull-left">
+                    <i class="fa fa-send"> Enviar por email</i>
+                </button>
+            </a>
+            <button type="button" class="btn btn-primary pull-left" onclick="window.print();">
+                <i class="fa fa-print"> Imprimir</i>
+            </button>
+            <a href="{% url 'remover_orcamento' orcamento.id %}">
+                <button type="button" class="btn btn-danger pull-right">
+                    <i class="fa fa-trash"> Excluir</i>
+                </button>
+            </a>
+            </a>
+        </div>
+    </div>
+
+</section>
+
+{% endblock content %}

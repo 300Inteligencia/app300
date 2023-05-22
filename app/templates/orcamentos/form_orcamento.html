@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de Orçamentos
+{% endblock title %}
+
+{% block content %}
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Cadastro de Orçamentos</h3>
+    </div>
+    <div class="box-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        {{ form_orcamentos.nomeorc.errors }}
+                        <label>Cirurgia: </label>
+                        {{ form_orcamento.nomeorc|addclass:'form-control' }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        {{ form_orcamentos.descr.errors }}
+                        <label>Descrição do Procedimento: </label>
+                        {{ form_orcamento.descr|addclass:'form-control' }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.proc1.errors }}
+                        <label>Procedimento 1: </label>
+                        {{ form_orcamento.proc1|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.val1.errors }}
+                        <label>Valor: </label>
+                        {{ form_orcamento.val1|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.pag1.errors }}
+                        <label>Forma de Pagamento: </label>
+                        {{ form_orcamento.pag1|addclass:'form-control' }}
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.proc2.errors }}
+                        <label>Procedimento 2: </label>
+                        {{ form_orcamento.proc2|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.val2.errors }}
+                        <label>Valor: </label>
+                        {{ form_orcamento.val2|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.pag2.errors }}
+                        <label>Forma de Pagamento: </label>
+                        {{ form_orcamento.pag2|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.proc3.errors }}
+                        <label>Procedimento 3: </label>
+                        {{ form_orcamento.proc3|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.val3.errors }}
+                        <label>Valor: </label>
+                        {{ form_orcamento.val3|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.pag3.errors }}
+                        <label>Forma de Pagamento: </label>
+                        {{ form_orcamento.pag3|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.proc5.errors }}
+                        <label>Serviço 1: </label>
+                        <input type="text" name="servico1" value="Hospital" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.val5.errors }}
+                        <label>Valor: </label>
+                        {{ form_orcamento.val5|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.pag5.errors }}
+                        <label>Forma de Pagamento: </label>
+                        {{ form_orcamento.pag5|addclass:'form-control' }}
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.proc6.errors }}
+                        <label>Serviço 2: </label>
+                        <input type="text" name="servico2" value="Equipe" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.val6.errors }}
+                        <label>Valor: </label>
+                        {{ form_orcamento.val6|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.pag6.errors }}
+                        <label>Forma de Pagamento: </label>
+                        {{ form_orcamento.pag6|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.proc4.errors }}
+                        <label>*Serviço 3: </label>
+                        <input type="text" name="servico3" value="Implante Mamário" class="form-control" readonly>
+                        <div class="rodape">*Fornecido por terceiro</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.val4.errors }}
+                        <label>Valor: </label>
+                        {{ form_orcamento.val4|addclass:'form-control' }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_orcamento.pag4.errors }}
+                        <label>Forma de Pagamento: </label>
+                        {{ form_orcamento.pag4|addclass:'form-control' }}
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" name="Cadastrar" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
