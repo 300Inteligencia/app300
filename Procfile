@@ -1,1 +1,1 @@
-gunicorn main:app
+web: gunicorn orcamentos.wsgi --log-file -
