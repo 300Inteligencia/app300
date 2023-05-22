@@ -86,8 +86,16 @@ EMAIL_HOST_PASSWORD = 'gqduzjdgrnspzldp'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "railway",
+        "USER": "root",
+        "PASSWORD": "KMbGMnqkpOsKe6qyFT19",
+        "HOST": "containers-us-west-155.railway.app",
+        "PORT": "7352",
+        "OPTIONS": {"sslmode": "require"},
+        }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
