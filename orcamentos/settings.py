@@ -86,31 +86,7 @@ EMAIL_HOST_PASSWORD = 'gqduzjdgrnspzldp'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-import urllib.parse
-if os.getenv("DATABASE_URL", "") != "":
-    r = urllib.parse(os.environ.get("DATABASE_URL"))
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.mysql",
-            "NAME": os.path.relpath(r.path, "/"),
-            "USER": r.username,
-            "PASSWORD":r.password,
-            "HOST": r.hostname,
-            "PORT": r.port,
-            "OPTIONS": {"sslmode": "require"},
-        }
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.mysql",
-            "NAME": "db_ramos",
-            "USER": "db_ramos",
-            "PASSWORD":"ramos300",
-            "HOST": "localhost",
-            "PORT": 3306
-        }
-    }
+
 
 
 # Password validation
