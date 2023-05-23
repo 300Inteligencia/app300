@@ -48,10 +48,22 @@
                 {% else %}
                     <b>{{orcamento.get_proc4_display}} : </b>R$ {{orcamento.val4}} - {{orcamento.get_pag4_display}}<br>
                 {% endif %}
-    
-                <b>Hospital : </b>R$ {{orcamento.val5}} - {{orcamento.get_pag5_display}}<br>
-    
-                <b>Equipe : </b>R$ {{orcamento.val6}} - {{orcamento.get_pag6_display}}<br>
+                {% if orcamento.val5 == null %}
+                    {{ form.DELETE }}
+                {% else %}
+                    <b>Hospital: </b>R$ {{orcamento.val5}} - {{orcamento.get_pag5_display}}<br>
+                {% endif %}
+                {% if orcamento.val6 == null %}
+                    {{ form.DELETE }}
+                {% else %}
+                    <b>Equipe: </b>R$ {{orcamento.val6}} - {{orcamento.get_pag6_display}}<br>
+                {% endif %}
+                {% if orcamento.val4 == null %}
+                    {{ form.DELETE }}
+                {% else %}
+                    <b>*Implante Mamário: </b>R$ {{orcamento.val4}} - {{orcamento.get_pag4_display}}<br>
+                    <i>*Fornecido por terceiro</i>
+                {% endif %}
                 <hr>
                 <h3><b>Valor total:</b> R$ {{ orcamento.total }}</h3>
                 <p><i>Válido por 90 dias a partir da data de envio deste orçamento.</i></p>
