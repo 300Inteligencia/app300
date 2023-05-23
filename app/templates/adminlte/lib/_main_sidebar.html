@@ -21,29 +21,19 @@
         {% block nav_links_ul %}
         <ul class="sidebar-menu">
             {% block nav_links_outer %}
-            <li class="header">{% block nav_heading %}MAIN NAVIGATION{% endblock %}</li>
+            <li class="header">{% block nav_heading %}Navegação{% endblock %}</li>
 
             {% block nav_links %}
-                <li>
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Example link</span>
-                    </a>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-group"></i> <span>Sub menu</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-user"></i> Another link
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+            <li>
+                <a href="{% url 'listar_clientes' %}">
+                    <i class="fa fa-user"></i> <span>Clientes</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'listar_funcionarios' %}">
+                    <i class="fa fa-user"></i> <span>Funcionários</span>
+                </a>
+            </li>
             {% endblock nav_links %}
             {% endblock nav_links_outer %}
         </ul>
