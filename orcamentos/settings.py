@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key)
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['300orcamentos.up.railway.app']
+ALLOWED_HOSTS = ['orcamentos300.up.railway.app']
 
 
 # Application definition
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://300orcamentos.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://orcamentos300.up.railway.app']
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 
