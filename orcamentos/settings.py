@@ -56,6 +56,9 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = ['300orcamentos.up.railway.app']
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+
 ROOT_URLCONF = "orcamentos.urls"
 
 TEMPLATES = [
