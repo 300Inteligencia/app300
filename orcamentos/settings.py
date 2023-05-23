@@ -55,7 +55,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CSRF_TRUSTED_ORIGINS = ['300orcamentos.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://300orcamentos.up.railway.app']
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 
