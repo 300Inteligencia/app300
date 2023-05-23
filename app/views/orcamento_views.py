@@ -113,6 +113,7 @@ def editar_orcamento(request, id):
         return render(request, 'clientes/lista_cliente.html', {'cliente': cliente})
     return render(request, 'orcamentos/form_orcamento.html', {'form_orcamento': form_orcamento})
 
+@user_passes_test(lambda u: u.cargo==1)
 def contagem_orcamentos(request):
     contagem = orcamento_services.contar_orcamentos_id()
     return render(request, 'orcamentos/contagem_orcamentos.html', {'contagem': contagem})
