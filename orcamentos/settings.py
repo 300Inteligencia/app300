@@ -55,7 +55,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CSRF_TRUSTED_ORIGINS = ['web-production-e0af.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['*']
 ROOT_URLCONF = "orcamentos.urls"
 
 TEMPLATES = [
