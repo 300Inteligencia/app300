@@ -55,6 +55,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+CSRF_TRUSTED_ORIGINS = ['web-production-e0af.up.railway.app']
 ROOT_URLCONF = "orcamentos.urls"
 
 TEMPLATES = [
@@ -72,9 +73,6 @@ TEMPLATES = [
         },
     },
 ]
-
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
 
 WSGI_APPLICATION = "orcamentos.wsgi.application"
 
