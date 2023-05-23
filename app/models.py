@@ -20,19 +20,13 @@ class Cliente(models.Model):
 
 class Orcamento(models.Model):
     forma_pagamento_choices = [
-        (1, '1x Cartão de Débito'),
-        (2, '2x Cartão de Débito'),
-        (3, '3x Cartão de Débito'),
-        (4, '4x Cartão de Débito'),
-        (5, '5x Cartão de Débito'),
-        (6, '6x Cartão de Débito'),
-        (7, '1x Cartão de Crédito'),
-        (8, '2x Cartão de Crédito'),
-        (9, '3x Cartão de Crédito'),
-        (10, '4x Cartão de Crédito'),
-        (11, '5x Cartão de Crédito'),
-        (12, '6x Cartão de Crédito'),
-        (13, 'Dinheiro')
+        (1, '1x Cartão de Crédito'),
+        (2, '2x Cartão de Crédito'),
+        (3, '3x Cartão de Crédito'),
+        (4, '4x Cartão de Crédito'),
+        (5, '5x Cartão de Crédito'),
+        (6, '6x Cartão de Crédito'),
+        (7, 'Dinheiro')
     ]
 
     cirurgias_choices = [
