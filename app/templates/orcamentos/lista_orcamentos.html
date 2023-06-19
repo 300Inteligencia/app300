@@ -14,6 +14,11 @@ Orçamento
     button {
         margin-right: 10px;
     }
+    @media print {
+        @page {
+            margin-top: 7cm;
+        }
+    }
 </style>
 <section class="invoice">
     <div class="row">
@@ -67,9 +72,6 @@ Orçamento
                 <b>*Implante Mamário: </b>R$ {{orcamento.val4}} - {{orcamento.get_pag4_display}}<br>
                 <i>*Fornecido por terceiro</i>
             {% endif %}
-            <hr>
-            <h3><b>Valor total:</b> R$ {{ orcamento.total|floatformat:2 }}</h3>
-
 
             <p><i>Válido por 90 dias a partir da data de envio deste orçamento.</i></p>
         </div>
