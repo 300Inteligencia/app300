@@ -32,31 +32,36 @@
             <div class="col-sm-12">
                 <b>Procedimentos e Valores:</b>
                 <br>
-                <b>{{orcamento.get_proc1_display}}:</b> R$ {{orcamento.val1}} - {{orcamento.get_pag1_display}}<br>           
+                <br>
+                <b>Cirurgião - {{orcamento.get_proc1_display}}:</b> R$ {{orcamento.val1}} - {{orcamento.get_pag1_display}}<br>
+                <br>         
                 {% if orcamento.proc2 == null %}
                     {{ form.DELETE }}
                 {% else %}
-                    <b>{{orcamento.get_proc2_display}} : </b>R$ {{orcamento.val2}} - {{orcamento.get_pag2_display}}<br>
+                    <b>Cirurgião - {{orcamento.get_proc2_display}} : </b>R$ {{orcamento.val2}} - {{orcamento.get_pag2_display}}
+                    <br>
+                    <br>
                 {% endif %}
-                {% if orcamento.get_proc3 == null %}
+                {% if orcamento.proc3 == null %}
                     {{ form.DELETE }}
                 {% else %}
-                    <b>{{orcamento.get_proc3_display}} : </b>R$ {{orcamento.val3}} - {{orcamento.get_pag3_display}}<br>
-                {% endif %}
-                {% if orcamento.get_proc4 == null %}
-                    {{ form.DELETE }}
-                {% else %}
-                    <b>{{orcamento.get_proc4_display}} : </b>R$ {{orcamento.val4}} - {{orcamento.get_pag4_display}}<br>
+                    <b>Cirurgião - {{orcamento.get_proc3_display}} : </b>R$ {{orcamento.val3}} - {{orcamento.get_pag3_display}}
+                    <br>
+                    <br>
                 {% endif %}
                 {% if orcamento.val5 == null %}
                     {{ form.DELETE }}
                 {% else %}
-                    <b>Hospital: </b>R$ {{orcamento.val5}} - {{orcamento.get_pag5_display}}<br>
+                    <b>Hospital: </b>R$ {{orcamento.val5}} - {{orcamento.get_pag5_display}}
+                    <br>
+                    <br>
                 {% endif %}
                 {% if orcamento.val6 == null %}
                     {{ form.DELETE }}
                 {% else %}
-                    <b>Equipe: </b>R$ {{orcamento.val6}} - {{orcamento.get_pag6_display}}<br>
+                    <b>Equipe: </b>R$ {{orcamento.val6}} - {{orcamento.get_pag6_display}}
+                    <br>
+                    <br>
                 {% endif %}
                 {% if orcamento.val4 == null %}
                     {{ form.DELETE }}
@@ -64,7 +69,11 @@
                     <b>*Implante Mamário: </b>R$ {{orcamento.val4}} - {{orcamento.get_pag4_display}}<br>
                     <i>*Fornecido por terceiro</i>
                 {% endif %}
-                <hr>
+                <br>
+                <br>
+                <b>Valor total:</b> R$ {{ orcamento.total|floatformat:2 }}
+    
+    
                 <p><i>Válido por 90 dias a partir da data de envio deste orçamento.</i></p>
             </div>
         </div>
