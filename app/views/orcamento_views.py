@@ -64,7 +64,7 @@ def enviar_email_orcamento(request, id):
     orcamento = orcamento_services.listar_orcamentos_id(id)
     cliente = cliente_service.listar_cliente_id(orcamento.pac.id)
     assunto = "Orçamento"
-    html_conteudo = render_to_string('orcamentos/orcamento_email.html', {'orcamento':orcamento})
+    html_conteudo = render_to_string('orcamentos/orcamento_email.html', {'orcamento':orcamento, 'cliente':cliente})
     corpo_email = "Resumo do Orçamento"
     email_remetente = settings.EMAIL_HOST_USER
     email_destino = [cliente.email,]
