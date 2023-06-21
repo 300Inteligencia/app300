@@ -56,7 +56,8 @@ def listar_orcamentos(request):
 @user_passes_test(lambda u: u.cargo==1)
 def listar_orcamento_id(request, id):
     orcamento = orcamento_services.listar_orcamentos_id(id)
-    return render(request, 'orcamentos/lista_orcamentos.html', {'orcamento': orcamento})
+    cliente = cliente_service.listar_cliente_id(orcamento.pac.id)
+    return render(request, 'orcamentos/lista_orcamentos.html', {'orcamento': orcamento, 'cliente':cliente})
 
 @user_passes_test(lambda u: u.cargo==1)
 def enviar_email_orcamento(request, id):
