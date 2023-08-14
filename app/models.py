@@ -17,6 +17,11 @@ class Cliente(models.Model):
     telefone = models.CharField(max_length=11,null=False, blank=False)
     data_nascimento = models.DateField(null=False, blank=False)
     profissao = models.CharField(max_length=25, null=False, blank=False)
+    medico_choices = [
+        (1, 'Cristiano Dias da Silveira Ramos'),
+        (2, 'Érika Lawall Lopoes Ramos')
+    ]
+    medico = models.IntegerField(choices=medico_choices, null=False, blank=False)
 
 class Orcamento(models.Model):
     forma_pagamento_choices = [
