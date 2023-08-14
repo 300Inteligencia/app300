@@ -15,6 +15,11 @@ Cadastro de Pacientes
             <form method="POST">
                 {% csrf_token %}
                 <div class="form-group">
+                    {{form_cliente.medico.errors}}
+                    <label>Médico Responsável: </label>
+                    {{form_cliente.medico|addclass:'form-control'}}
+                </div>
+                <div class="form-group">
                     {{form_cliente.nome.errors}}
                     <label>Nome: </label>
                     {{form_cliente.nome|addclass:'form-control'}}
