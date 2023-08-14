@@ -7,7 +7,7 @@ from ..models import Cliente
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = ['nome', 'email','telefone', 'data_nascimento', 'cpf', 'profissao']
+        fields = ['nome', 'email','telefone', 'data_nascimento', 'cpf', 'profissao', 'medico']
         widgets = {
             'data_nascimento': DateInput(
                 attrs={'type': "date"}
