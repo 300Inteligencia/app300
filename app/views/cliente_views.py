@@ -1,15 +1,26 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, redirect
 
-from ..forms.cliente_forms import ClienteForm
+from ..forms.cliente_forms import ClienteForm, FiltroMedicoForm
 from ..forms.endereco_forms import EnderecoClienteForm
 from ..entidades import cliente, endereco
 from ..services import cliente_service, endereco_service, orcamento_services
 
 @login_required()
 def listar_clientes(request):
+    form = FiltroMedicoForm(request.GET)
     clientes = cliente_service.listar_clientes()
-    return render(request, 'clientes/lista_clientes.html', {'clientes': clientes})
+
+    if form.is_valid():
+        medico = form.cleaned_data['Médico']
+        if medico:
+            clientes = clientes.filter(medico=medico)
+
+    context = {
+        'clientes': clientes,
+        'form': form,
+    }
+    return render(request, 'clientes/lista_clientes.html', context)
 
 @user_passes_test(lambda u: u.cargo==1)
 def listar_cliente_id(request, id):
