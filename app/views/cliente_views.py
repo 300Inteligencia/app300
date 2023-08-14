@@ -50,6 +50,7 @@ def cadastrar_cliente(request):
             cpf = form_cliente.cleaned_data["cpf"]
             data_nascimento = form_cliente.cleaned_data["data_nascimento"]
             profissao = form_cliente.cleaned_data["profissao"]
+            medico = form_cliente.cleaned_data["medico"]
             if form_endereco.is_valid():
                 rua = form_endereco.cleaned_data["rua"]
                 cidade = form_endereco.cleaned_data["cidade"]
@@ -57,7 +58,7 @@ def cadastrar_cliente(request):
                 endereco_novo = endereco.Endereco(rua=rua, cidade=cidade, estado=estado)
                 endereco_bd = endereco_service.cadastrar_endereco(endereco_novo)
                 cliente_novo = cliente.Cliente(nome=nome, email=email, telefone=telefone, data_nascimento=data_nascimento,
-                                           profissao=profissao, cpf=cpf, endereco=endereco_bd)
+                                           profissao=profissao, cpf=cpf, endereco=endereco_bd, medico=medico)
                 cliente_service.cadastrar_cliente(cliente_novo)
                 return redirect('listar_clientes')
     else:
@@ -79,6 +80,7 @@ def editar_cliente(request, id):
         cpf = form_cliente.cleaned_data["cpf"]
         data_nascimento = form_cliente.cleaned_data["data_nascimento"]
         profissao = form_cliente.cleaned_data["profissao"]
+        medico = form_cliente.cleaned_data["medico"]
         if form_endereco.is_valid():
             rua = form_endereco.cleaned_data["rua"]
             cidade = form_endereco.cleaned_data["cidade"]
@@ -86,7 +88,7 @@ def editar_cliente(request, id):
             endereco_novo = endereco.Endereco(rua=rua, cidade=cidade, estado=estado)
             endereco_editado = endereco_service.editar_endereco(endereco_editar, endereco_novo)
             cliente_novo = cliente.Cliente(nome=nome, email=email,telefone=telefone, data_nascimento=data_nascimento,
-                                           profissao=profissao, cpf=cpf, endereco=endereco_editado)
+                                           profissao=profissao, cpf=cpf, endereco=endereco_editado, medico=medico)
             cliente_service.editar_cliente(cliente_editar, cliente_novo)
             return redirect('listar_clientes')
     return render(request, 'clientes/form_cliente.html', {'form_cliente': form_cliente ,'form_endereco': form_endereco})
