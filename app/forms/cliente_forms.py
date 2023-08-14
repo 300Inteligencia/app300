@@ -13,3 +13,7 @@ class ClienteForm(forms.ModelForm):
                 attrs={'type': "date"}
             )
         }
+        
+class FiltroMedicoForm(forms.Form):
+    medicos_choices = [(choice[0], choice[1]) for choice in Cliente.medico_choices]
+    Médico = forms.ChoiceField(choices=[('', 'Todos')] + medicos_choices, required=False)
