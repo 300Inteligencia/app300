@@ -1,5 +1,6 @@
+from django.utils import timezone
 class Orcamentos():
-    def __init__(self, pac, nomeorc, proc1, val1, pag1, proc2, val2, pag2, proc3, val3, pag3, proc4, val4, pag4, proc5, val5, pag5, proc6, val6, pag6, descr,data=""):
+    def __init__(self, pac, nomeorc, proc1, val1, pag1, proc2, val2, pag2, proc3, val3, pag3, proc4, val4, pag4, proc5, val5, pag5, proc6, val6, pag6, descr,data=timezone.now()):
         self.__nomeorc = nomeorc
         self.__descr = descr
         self.__proc1 = proc1
