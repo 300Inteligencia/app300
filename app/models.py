@@ -86,6 +86,12 @@ class Orcamento(models.Model):
     val6 = models.FloatField(null=True, blank=True)
     pag6 = models.IntegerField(choices=forma_pagamento_choices, null=True, blank=True)
 
+    data_ultima_alteracao = models.DateTimeField(default=timezone.now, editable=False)
+
+    def datatt(self, *args, **kwargs):
+        self.data_ultima_alteracao = timezone.now()
+        super(Orcamento, self).save(*args, **kwargs)
+    
     def total(self):
         return (self.val1 or 0) + (self.val2 or 0) + (self.val3 or 0) + (self.val4 or 0) + (self.val5 or 0) + (self.val6 or 0)
 
