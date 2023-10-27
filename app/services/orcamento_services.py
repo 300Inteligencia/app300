@@ -1,4 +1,5 @@
 from ..models import Orcamento
+from django.utils import timezone
 
 def cadastrar_orcamento(orcamento):
     orc_bd = Orcamento.objects.create(
@@ -43,6 +44,7 @@ def listar_orcamentos():
     return Orcamento.objects.all().order_by('-data')
 
 def editar_orcamento(orcamento, orcamento_novo):
+    orcamento.data = timezone.now()
     orcamento.pac = orcamento_novo.pac
     orcamento.nomeorc = orcamento_novo.nomeorc
     orcamento.descr = orcamento_novo.descr
@@ -64,7 +66,7 @@ def editar_orcamento(orcamento, orcamento_novo):
     orcamento.proc6 = orcamento_novo.proc6
     orcamento.val6 = orcamento_novo.val6
     orcamento.pag6 = orcamento_novo.pag6
-    orcamento.save(force_update=True)
+    orcamento.save()
 
 def remover_orcamento(orcamento):
     orcamento.delete()
