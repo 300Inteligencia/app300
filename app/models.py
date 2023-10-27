@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django_localflavor_br.br_states import STATE_CHOICES
+from django.utils import timezone
 
 # Create your models here.
 
