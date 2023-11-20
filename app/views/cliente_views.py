@@ -13,8 +13,11 @@ def listar_clientes(request):
 
     if form.is_valid():
         medico = form.cleaned_data['Médico']
+        pesquisa = form.cleaned_data['pesquisa']
         if medico:
             clientes = clientes.filter(medico=medico)
+        if pesquisa:
+            clientes = clientes.filter(nome__icontains=pesquisa)
 
     context = {
         'clientes': clientes,
