@@ -95,9 +95,9 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "railway",
         "USER": "root",
-        "PASSWORD": "KMbGMnqkpOsKe6qyFT19",
-        "HOST": "containers-us-west-155.railway.app",
-        "PORT": "7352",
+        "PASSWORD": "3b2Aa3gfFECfDHB6F2f4F6C52AGAE3Fa",#"KMbGMnqkpOsKe6qyFT19",
+        "HOST": "viaduct.proxy.rlwy.net",#"containers-us-west-155.railway.app",
+        "PORT": "23818"#"7352",
         }
 }
 
